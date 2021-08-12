@@ -1,0 +1,6 @@
+
+*.ipynb
+ppdata
+exdata
+results
+*.pyc

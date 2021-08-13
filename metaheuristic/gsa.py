@@ -56,11 +56,11 @@ def gsa(problem, maxnfe, n, g0, alpha, seed, file):
                 b = np.abs(Px[i]-Px[k]) + np.finfo('float').eps
                 c = (Px[k]-Px[i])
 
-                Pforce[i] += c*(a/b) * np.random.uniform(0,1,problem.dimension)
+                Pforce[i] += c*(a/b) * myrng.uniform(0,1,problem.dimension)
         
         # update acceleration, velocity, and position
         Pacceleration = Pforce/(Pmass+np.finfo('float').eps)
-        Pv = [Pacceleration[i] + Pv[i]*np.random.uniform(0,1,problem.dimension) for i in range(n)]
+        Pv = [Pacceleration[i] + Pv[i]*myrng.uniform(0,1,problem.dimension) for i in range(n)]
         Px = np.array([np.clip(Px[i]+Pv[i], problem.lower_bounds, problem.upper_bounds) for i in range(n)])
 
         ## evaluate ##

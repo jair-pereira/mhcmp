@@ -66,7 +66,7 @@ def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file):
         
             # chance of exchanging information with neighbors
             n_neighbors = sum(neighborhood)
-            mask = (np.random.uniform(0, 1, n_neighbors) < a[min(n_neighbors-1, 2)])
+            mask = (myrng.uniform(0, 1, n_neighbors) < a[min(n_neighbors-1, 2)])
             
             # exchange lbest info
             indices = np.arange(0, n)

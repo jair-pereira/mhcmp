@@ -29,10 +29,8 @@ def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file):
     Px = np.array([myrng.uniform(problem.lower_bounds, problem.upper_bounds, problem.dimension) for _ in range(n)])
     
     ## other attributes ##
-    # velocity
-    Pv = np.zeros((n, problem.dimension))
-    # hunger
-    Phunger = myrng.randint(0, t_hunger, n)
+    Pv = np.zeros((n, problem.dimension)) # velocity
+    Phunger = myrng.randint(0, t_hunger, n) # counter hunger
 
     ## evalute ##
     Pf = np.array([problem(x) for x in Px])
@@ -71,12 +69,9 @@ def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file):
             # exchange lbest info
             indices = np.arange(0, n)
             for neighbor in indices[neighborhood][mask]:
-                if Pf[i] > Pf[neighbor]: #if i.fitness worse than neighbor, get neighbor.fitness
-                    Plbest_f[i] = Pf[neighbor]
-                    Plbest_x[i] = Px[neighbor]
-                else: # give i.fitness to neighbor
-                    Plbest_f[neighbor] = Pf[i]
-                    Plbest_x[neighbor] = Px[i]
+                idx = np.argmin([Pf[i], Pf[neighbor]])
+                Plbest_f[i] = Plbest_f[neighbor] = [Pf[i], Pf[neighbor]][idx]
+                Plbest_x[i] = Plbest_x[neighbor] = [Px[i], Px[neighbor]][idx]
             
             # update position or re-initialize depending on hunger
             if Phunger[i] < t_hunger: #update
@@ -86,25 +81,29 @@ def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file):
                 Pv[i] = c0*Pv[i] + c1*r1*(Ppbest_x[i] - Px[i]) + c1*r2*(Plbest_x[i] - Px[i])
                 #position update
                 Px[i] = np.clip(Px[i]+Pv[i], problem.lower_bounds, problem.upper_bounds)
-                #hunger update
-                Phunger[i]+=1                
             else: #re-initialize
                 Px[i] = myrng.uniform(problem.lower_bounds, problem.upper_bounds, problem.dimension)
                 Phunger[i]=0
                 
-            #evalute
-            Pf[i] = problem(Px[i])
-            nfe+=1 
-            #update pbest
+            
+        ## evaluate ##
+        Pf = np.array([problem(x) for x in Px])
+        nfe += len(Pf)
+            
+        #update pbest
+        for i in range(n):
             if Ppbest_f[i] >= Pf[i]:
                 Ppbest_x[i] = Px[i].copy()
                 Ppbest_f[i] = Pf[i]
-                
+        
         ## find gbest ##
         current_best = np.argmin(Pf)
         if gbest_f >= Pf[current_best]:
             gbest_x = Px[current_best].copy()
             gbest_f = Pf[current_best]
+            
+        # hunger increment
+        Phunger += 1
             
         ## history ##
         str_gbestx = ";".join(map(str, gbest_x))

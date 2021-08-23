@@ -1,23 +1,22 @@
-# ./.github/workflows/staging-auto-pr.yaml
-name: Staging Auto-PR
 on:
   push:
-    branches: ['main']
+    branches:
+    - "main"  # Support wildcard matching
 
 jobs:
   pull-request:
-    name: Open PR to dev
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      name: checkout
-
-    - uses: repo-sync/pull-request@v2
-      name: pull-request
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
       with:
-        destination_branch: "add_mh"
-        pr_title: "Pulling ${{ github.ref }} into dev"
-        pr_body: "👑 *An automated PR*"
-        pr_reviewer: "auto"
-        pr_draft: true
+        source_branch: ""                                 # If blank, default: triggered branch
+        destination_branch: "add_mh"                      # If blank, default: master
+        pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
+        pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
+        pr_reviewer: "wei,worker"                         # Comma-separated list (no spaces)
+        pr_assignee: "wei,worker"                         # Comma-separated list (no spaces)
+        pr_label: "auto-pr"                               # Comma-separated list (no spaces)
+        pr_allow_empty: false                              # Creates pull request even if there are no changes
         github_token: ${{ secrets.GITHUB_TOKEN }}

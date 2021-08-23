@@ -1,0 +1,23 @@
+# ./.github/workflows/staging-auto-pr.yaml
+name: Staging Auto-PR
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  pull-request:
+    name: Open PR to dev
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      name: checkout
+
+    - uses: repo-sync/pull-request@v2
+      name: pull-request
+      with:
+        destination_branch: "dev"
+        pr_title: "Pulling ${{ github.ref }} into dev"
+        pr_body: "👑 *An automated PR*"
+        pr_reviewer: "auto"
+        pr_draft: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}

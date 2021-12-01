@@ -1,7 +1,8 @@
 import numpy as np
 
-def ffa(problem, maxnfe, n, alpha, gamma, seed, file):
-    myrng = np.random.RandomState(seed)
+def ffa(problem, maxnfe, n, alpha, gamma, seed, file=None):
+    myrng = np.random.default_rng(seed)
+
 
     ## initialization ##
     Px = np.array([myrng.uniform(problem.lower_bounds, problem.upper_bounds, problem.dimension) for _ in range(n)])
@@ -16,8 +17,9 @@ def ffa(problem, maxnfe, n, alpha, gamma, seed, file):
     gbest_f = Pf[current_best]
     
     ## history ##
-    # str_gbestx = ";".join(map(str, gbest_x))
-    # file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
+    if file:
+        str_gbestx = ";".join(map(str, gbest_x))
+        file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
     
     while nfe <= maxnfe:# and not problem.final_target_hit:
         i_sorted = np.argsort(-Pf) #best at the end
@@ -50,8 +52,9 @@ def ffa(problem, maxnfe, n, alpha, gamma, seed, file):
             gbest_f = Pf[current_best]
             
         ## history ##
-        # str_gbestx = ";".join(map(str, gbest_x))
-        # file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
+        if file:
+            str_gbestx = ";".join(map(str, gbest_x))
+            file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
 
     result = {"x"  :gbest_x,
               "f"  :gbest_f,

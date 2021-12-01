@@ -1,7 +1,7 @@
 import numpy as np
 
 def gsa(problem, maxnfe, n, g0, alpha, seed, file):
-    myrng = np.random.RandomState(seed)
+    myrng = np.random.default_rng(seed)
 
     ## initialization ##
     Px = np.array([myrng.uniform(problem.lower_bounds, problem.upper_bounds, problem.dimension) for _ in range(n)])
@@ -27,8 +27,9 @@ def gsa(problem, maxnfe, n, g0, alpha, seed, file):
     gworst_fi = Pf[current_worst]
     
     ## history ##
-    str_gbestx = ";".join(map(str, gbest_x))
-    file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
+    if file:
+        str_gbestx = ";".join(map(str, gbest_x))
+        file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
     
     max_iteration = np.ceil(maxnfe/n)
     kbest = list(map(int, np.linspace(n, 1, int(max_iteration))))
@@ -78,8 +79,9 @@ def gsa(problem, maxnfe, n, g0, alpha, seed, file):
         gworst_fi = Pf[current_worst]
         
         ## history ##
-        str_gbestx = ";".join(map(str, gbest_x))
-        file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
+        if file:
+            str_gbestx = ";".join(map(str, gbest_x))
+            file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
         
         iteration+=1
     

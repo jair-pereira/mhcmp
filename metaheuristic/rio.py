@@ -23,7 +23,7 @@ def get_neighborhood(i, dist_median, dist_matrix):
     return mask_neighbors
 
 def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file):
-    myrng = np.random.RandomState(seed)
+    myrng = np.random.default_rng(seed)
 
     ## initialization ##
     Px = np.array([myrng.uniform(problem.lower_bounds, problem.upper_bounds, problem.dimension) for _ in range(n)])
@@ -50,8 +50,9 @@ def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file):
     Plbest_f = Pf[:]
     
     ## history ##
-    str_gbestx = ";".join(map(str, gbest_x))
-    file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
+    if file:
+        str_gbestx = ";".join(map(str, gbest_x))
+        file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
 
     while nfe <= maxnfe:
         # compute distances between c.solutions and the median
@@ -106,8 +107,9 @@ def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file):
         Phunger += 1
             
         ## history ##
-        str_gbestx = ";".join(map(str, gbest_x))
-        file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
+        if file:
+            str_gbestx = ";".join(map(str, gbest_x))
+            file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
     
     result = {"x"  :gbest_x,
               "f"  :gbest_f,

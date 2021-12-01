@@ -1,7 +1,7 @@
 import numpy as np
 
-def ata(problem, maxnfe, n, tolerance, w, seed, file):
-    myrng = np.random.RandomState(seed)
+def ata(problem, maxnfe, n, tolerance, w, seed, file=None):
+    myrng = np.random.default_rng(seed)
 
     ## initialization ##
     Px = np.array([myrng.uniform(problem.lower_bounds, problem.upper_bounds, problem.dimension) for _ in range(n)])
@@ -20,8 +20,9 @@ def ata(problem, maxnfe, n, tolerance, w, seed, file):
     Pbest_f = Pf[:]
     
     ## history ##
-    str_gbestx = ";".join(map(str, gbest_x))
-    file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
+    if file:
+        str_gbestx = ";".join(map(str, gbest_x))
+        file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
 
     gbest_f_prev = gbest_f_cur = gbest_f
     while nfe <= maxnfe:
@@ -55,8 +56,9 @@ def ata(problem, maxnfe, n, tolerance, w, seed, file):
                 Pbest_f[i] = Pf[i]
                 
         ## history ##
-        str_gbestx = ";".join(map(str, gbest_x))
-        file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
+        if file:
+            str_gbestx = ";".join(map(str, gbest_x))
+            file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
     
     result = {"x"  :gbest_x,
               "f"  :gbest_f,

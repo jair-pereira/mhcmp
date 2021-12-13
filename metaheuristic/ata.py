@@ -1,6 +1,6 @@
 import numpy as np
 
-def ata(problem, maxnfe, n, tolerance, w, seed, file=None):
+def ata(problem, maxnfe, n, tolerance, w0, w, seed, file=None):
     myrng = np.random.default_rng(seed)
 
     ## initialization ##
@@ -30,12 +30,12 @@ def ata(problem, maxnfe, n, tolerance, w, seed, file=None):
             for i in range(n):
                 r1 = myrng.uniform(0, 1, problem.dimension)
                 r2 = myrng.uniform(0, 1, problem.dimension)
-                Px[i] = Px[i] + r1*(Pbest_x[i]-Px[i]) + w*r2*(gbest_x-Px[i])
+                Px[i] = Px[i] + w0*r1*(Pbest_x[i]-Px[i]) + w*r2*(gbest_x-Px[i])
         else: #propagation
             for i in range(n):
                 r1 = myrng.uniform(0, 1, problem.dimension)
                 r2 = myrng.uniform(0, 1, problem.dimension)
-                Px[i] = r1*Px[i] + (1-r2)*Px[myrng.randint(0, n)]
+                Px[i] = r1*Px[i] + (1-r2)*Px[myrng.integers(0, n)]
         
         ## evaluate ##
         Pf = np.array([problem(x) for x in Px])

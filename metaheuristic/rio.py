@@ -22,15 +22,16 @@ def get_neighborhood(i, dist_median, dist_matrix):
     
     return mask_neighbors
 
-def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file):
+def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file=None):
     myrng = np.random.default_rng(seed)
+    t_hunger = int(maxnfe*t_hunger)
 
     ## initialization ##
     Px = np.array([myrng.uniform(problem.lower_bounds, problem.upper_bounds, problem.dimension) for _ in range(n)])
     
     ## other attributes ##
     Pv = np.zeros((n, problem.dimension)) # velocity
-    Phunger = myrng.randint(0, t_hunger, n) # counter hunger
+    Phunger = myrng.integers(0, t_hunger, size=n) # counter hunger
 
     ## evalute ##
     Pf = np.array([problem(x) for x in Px])

@@ -1,6 +1,6 @@
 import numpy as np
 
-def gsa(problem, maxnfe, n, g0, alpha, seed, file):
+def gsa(problem, maxnfe, n, g0, alpha, seed, file=None):
     myrng = np.random.default_rng(seed)
 
     ## initialization ##

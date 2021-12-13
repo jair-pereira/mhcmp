@@ -31,7 +31,7 @@ def saa(problem, maxnfe, n, alpha, seed, file=None):
         temperature = 1-(ki+1)/k
         
         ## neighbor ##
-        Pmut = alpha*np.array([myrng.uniform(0, 1, problem.dimension) for _ in range(n)])
+        Pmut = alpha*np.array([myrng.uniform(-1, 1, problem.dimension) for _ in range(n)])
         Pu = Px + Pmut
         
         ## evaluate Pu ##

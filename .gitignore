@@ -4,3 +4,4 @@ ppdata
 exdata
 results
 *.pyc
+.DS_Store

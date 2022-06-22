@@ -1,0 +1,393 @@
+#------------------------------------------------------------------------------
+# irace: An implementation in R of (Elitist) Iterated Racing
+# Version: 3.4.1.9fcaeaf
+# Copyright (C) 2010-2020
+# Manuel Lopez-Ibanez     <manuel.lopez-ibanez@manchester.ac.uk>
+# Jeremie Dubois-Lacoste  
+# Leslie Perez Caceres    <leslie.perez.caceres@ulb.ac.be>
+#
+# This is free software, and you are welcome to redistribute it under certain
+# conditions.  See the GNU General Public License for details. There is NO
+# WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# irace builds upon previous code from the race package:
+#     race: Racing methods for the selection of the best
+#     Copyright (C) 2003 Mauro Birattari
+#------------------------------------------------------------------------------
+# installed at: /usr/local/lib/R/site-library/irace
+# called with: -s scenario_de.txt
+# 2021-12-09 10:12:51 UTC: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 3
+# minNbSurvival: 3
+# nbParameters: 3
+# seed: 2023112121
+# confidence level: 0.95
+# budget: 2000
+# mu: 5
+# deterministic: FALSE
+
+# 2021-12-09 10:12:51 UTC: Iteration 1 of 3
+# experimentsUsedSoFar: 0
+# remainingBudget: 2000
+# currentBudget: 666
+# nbConfigurations: 111
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|          1|        111|         15|    6.871402746|        111|00:23:17|   NA|  NA|    NA|
+|x|          2|        111|         51|    7.210256458|        222|00:21:24|+0.30|0.65|0.3319|
+|x|          3|        111|         51|    7.157025476|        333|00:20:29|+0.29|0.53|0.3959|
+|x|          4|        111|         51|    7.138992587|        444|00:19:16|+0.29|0.47|0.4323|
+|-|          5|         22|         51|    7.138076235|        555|00:12:30|-0.03|0.17|0.9010|
+|=|          6|         22|         51|    7.137352013|        577|00:03:05|+0.03|0.19|0.8479|
+|=|          7|         22|         51|    7.136453784|        599|00:02:28|+0.04|0.18|0.8647|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.136453784
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 11:55:24 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+     n cxpr  beta
+51 100 0.94  0.25
+29  25 0.51  0.87
+6  200 0.70 -0.25
+# 2021-12-09 11:55:24 UTC: Iteration 2 of 3
+# experimentsUsedSoFar: 599
+# remainingBudget: 1401
+# currentBudget: 700
+# nbConfigurations: 90
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|          8|         90|         51|    7.135755888|         90|00:09:49|   NA|  NA|    NA|
+|x|          4|         90|         51|    7.110324903|        177|00:08:03|+0.11|0.55|0.8885|
+|x|          3|         90|         51|    7.090404439|        264|00:09:41|+0.21|0.47|0.7290|
+|x|          6|         90|         51|    7.101236056|        351|00:11:29|+0.22|0.41|0.7533|
+|-|          7|         16|         51|    7.107201726|        438|00:07:05|+0.10|0.28|0.8376|
+|-|          2|          6|         51|    7.133359584|        451|00:01:22|+0.30|0.42|0.6027|
+|-|          1|          4|         51|    7.136645935|        454|00:00:17|+0.24|0.35|0.4580|
+|-|          5|          2|         51|    7.136366547|        455|00:00:16|-0.07|0.06|0.5357|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.136366547
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 12:43:30 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+176 200 0.96 -0.04
+# 2021-12-09 12:43:30 UTC: Iteration 3 of 3
+# experimentsUsedSoFar: 1054
+# remainingBudget: 946
+# currentBudget: 946
+# nbConfigurations: 106
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|          9|        106|        264|    7.059268838|        106|00:09:37|   NA|  NA|    NA|
+|x|          5|        106|        264|    7.040272710|        210|00:11:40|+0.44|0.72|0.5579|
+|x|          6|        106|         51|    7.150818550|        314|00:12:19|+0.35|0.57|0.6016|
+|x|          2|        106|         51|    7.179151131|        418|00:12:40|+0.32|0.49|0.5832|
+|-|          3|         21|         51|    7.153433607|        522|00:13:43|+0.14|0.31|0.8283|
+|-|          7|          7|         51|    7.149705408|        541|00:01:50|+0.09|0.24|0.7568|
+|=|          4|          7|         51|    7.140446623|        546|00:00:27|+0.16|0.28|0.7086|
+|-|          8|          4|         51|    7.139860281|        551|00:00:30|+0.06|0.17|0.6479|
+|=|          1|          4|         51|    7.141694033|        553|00:00:20|+0.03|0.14|0.6930|
+|=|         10|          4|         51|    7.142097895|        557|00:00:22|+0.00|0.10|0.7409|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.142097895
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 13:47:05 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+176 200 0.96 -0.04
+265 100 0.97 -0.20
+# 2021-12-09 13:47:05 UTC: Iteration 4 of 4
+# experimentsUsedSoFar: 1611
+# remainingBudget: 389
+# currentBudget: 389
+# nbConfigurations: 38
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         11|         38|        307|    7.003307954|         38|00:04:01|   NA|  NA|    NA|
+|x|          2|         38|        328|    7.077067832|         73|00:03:08|+0.60|0.80|0.1384|
+|x|          5|         38|         51|    7.206644700|        108|00:04:15|+0.58|0.72|0.1126|
+|x|         10|         38|        265|    7.184481446|        143|00:04:46|+0.56|0.67|0.1278|
+|-|          6|          7|         51|    7.179879532|        178|00:04:29|+0.35|0.48|0.5624|
+|-|          4|          5|         51|    7.164048597|        182|00:00:43|-0.05|0.12|0.8223|
+|=|          3|          5|         51|    7.147836442|        184|00:00:37|+0.01|0.15|0.7540|
+|=|          7|          5|         51|    7.145739937|        186|00:00:36|+0.09|0.20|0.6980|
+|=|          8|          5|         51|    7.144630599|        188|00:00:19|+0.12|0.22|0.6699|
+|=|          9|          5|         51|    7.148598931|        190|00:00:26|+0.14|0.23|0.6576|
+|-|          1|          2|         51|    7.149304850|        192|00:00:34|+0.13|0.21|0.4364|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.149304850
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 14:11:06 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+265 100 0.97 -0.20
+# 2021-12-09 14:11:06 UTC: Iteration 5 of 5
+# experimentsUsedSoFar: 1803
+# remainingBudget: 197
+# currentBudget: 197
+# nbConfigurations: 18
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         12|         18|         51|    7.167595691|         18|00:01:59|   NA|  NA|    NA|
+|x|          5|         18|         51|    7.151003259|         34|00:01:48|+0.57|0.78|0.3356|
+|x|          6|         18|         51|    7.145245807|         50|00:01:38|+0.45|0.63|0.4772|
+|x|         11|         18|         51|    7.164277955|         66|00:01:20|+0.50|0.62|0.4377|
+|-|          2|          4|         51|    7.184252139|         82|00:01:45|+0.48|0.58|0.2979|
+|-|          1|          2|         51|    7.179604123|         84|00:00:26|+0.33|0.44|0.3333|
+|.|          9|          2|         51|    7.180276951|         84|00:00:00|+0.43|0.51|0.2857|
+|.|         10|          2|         51|    7.175958914|         84|00:00:00|+0.14|0.25|0.4286|
+|.|          8|          2|         51|    7.171491911|         84|00:00:00|+0.00|0.11|0.5000|
+|.|          7|          2|         51|    7.167449161|         84|00:00:00|+0.07|0.16|0.4667|
+|.|          3|          2|         51|    7.156823193|         84|00:00:00|+0.13|0.21|0.4364|
+|.|          4|          2|         51|    7.150829087|         84|00:00:00|+0.18|0.25|0.4091|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.150829087
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 14:20:05 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+265 100 0.97 -0.20
+# 2021-12-09 14:20:05 UTC: Iteration 6 of 6
+# experimentsUsedSoFar: 1887
+# remainingBudget: 113
+# currentBudget: 113
+# nbConfigurations: 10
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         13|         10|        265|    7.142309940|         10|00:01:05|   NA|  NA|    NA|
+|x|         11|         10|         51|    7.185756366|         18|00:01:20|+0.66|0.83|0.2810|
+|x|          8|         10|        265|    7.162019044|         26|00:02:06|+0.54|0.69|0.3280|
+|x|         10|         10|        265|    7.147690774|         34|00:01:16|+0.47|0.60|0.3267|
+|-|          1|          3|         51|    7.161873064|         42|00:01:15|+0.70|0.76|0.0610|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.150775952
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 14:27:10 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+265 100 0.97 -0.20
+355 800 0.94 -0.28
+# 2021-12-09 14:27:10 UTC: Iteration 7 of 7
+# experimentsUsedSoFar: 1929
+# remainingBudget: 71
+# currentBudget: 71
+# nbConfigurations: 7
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         14|          7|        265|    7.192693720|          7|00:00:56|   NA|  NA|    NA|
+|x|         10|          7|        265|    7.148699841|         11|00:00:37|+0.75|0.88|0.1106|
+|x|          5|          7|        265|    7.154396986|         16|00:00:58|+0.76|0.84|0.1964|
+|x|          3|          7|         51|    7.133234247|         21|00:01:08|+0.78|0.83|0.1821|
+|-|         13|          3|        265|    7.169408756|         25|00:00:38|+0.70|0.76|0.0174|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.154451241
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 14:31:29 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+265 100 0.97 -0.20
+355 800 0.94 -0.28
+# 2021-12-09 14:31:29 UTC: Iteration 8 of 8
+# experimentsUsedSoFar: 1954
+# remainingBudget: 46
+# currentBudget: 46
+# nbConfigurations: 5
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         15|          5|         51|    7.077719017|          5|00:00:59|   NA|  NA|    NA|
+|x|          7|          5|         51|    7.104391713|          8|00:01:01|+0.40|0.70|0.4273|
+|x|          3|          5|         51|    7.086448979|         10|00:00:19|+0.53|0.69|0.3269|
+|x|         14|          5|         51|    7.115394233|         12|00:00:20|+0.58|0.69|0.3335|
+|-|         13|          3|         51|    7.122343053|         14|00:00:22|+0.70|0.76|0.0210|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.149335759
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 14:34:32 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+265 100 0.97 -0.20
+355 800 0.94 -0.28
+# 2021-12-09 14:34:33 UTC: Iteration 9 of 9
+# experimentsUsedSoFar: 1968
+# remainingBudget: 32
+# currentBudget: 32
+# nbConfigurations: 4
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         16|          4|        368|    7.024018729|          4|00:00:35|   NA|  NA|    NA|
+|x|         15|          4|         51|    7.174366430|          5|00:00:21|+0.20|0.60|0.3993|
+|x|         11|          4|         51|    7.190035753|          6|00:00:15|+0.20|0.47|0.5271|
+|x|          2|          4|         51|    7.208564033|          8|00:00:56|+0.40|0.55|0.4134|
+|!|         14|          4|        265|    7.217163674|          9|00:00:21|+0.52|0.62|0.3372|
+|-|          5|          3|         51|    7.195149492|         10|00:00:22|+0.70|0.75|0.0319|
+|.|          8|          3|         51|    7.186664692|         10|00:00:00|+0.71|0.76|0.0386|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.156940639
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 14:37:25 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+265 100 0.97 -0.20
+355 800 0.94 -0.28
+# 2021-12-09 14:37:25 UTC: Iteration 10 of 10
+# experimentsUsedSoFar: 1978
+# remainingBudget: 22
+# currentBudget: 22
+# nbConfigurations: 4
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         17|          4|         51|    7.121660648|          4|00:00:31|   NA|  NA|    NA|
+|x|          6|          4|         51|    7.127695777|          6|00:00:34|+0.80|0.90|0.4202|
+|x|          8|          4|         51|    7.130382480|          7|00:00:21|+0.73|0.82|0.3785|
+|x|          7|          4|         51|    7.130552962|          8|00:00:14|+0.63|0.72|0.2996|
+|-|         14|          3|         51|    7.144888369|          9|00:00:14|+0.70|0.76|0.1222|
+|.|         16|          3|         51|    7.165909281|          9|00:00:00|+0.70|0.75|0.1096|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          51    mean value:     7.154865346
+Description of the best-so-far configuration:
+   .ID.   n cxpr beta .PARENT.
+51   51 100 0.94 0.25       NA
+
+# 2021-12-09 14:39:21 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+265 100 0.97 -0.20
+355 800 0.94 -0.28
+# 2021-12-09 14:39:21 UTC: Stopped because there is not enough budget left to race more than the minimum (3)
+# You may either increase the budget or set 'minNbSurvival' to a lower value
+# Iteration: 11
+# nbIterations: 11
+# experimentsUsedSoFar: 1987
+# timeUsed: 0
+# remainingBudget: 13
+# currentBudget: 13
+# number of elites: 3
+# nbConfigurations: 3
+# Best configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+      n cxpr  beta
+51  100 0.94  0.25
+265 100 0.97 -0.20
+355 800 0.94 -0.28
+# Best configurations as commandlines (first number is the configuration ID; same order as above):
+51    100  0.94  0.25
+265   100  0.97  -0.2
+355   800  0.94  -0.28

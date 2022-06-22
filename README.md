@@ -33,5 +33,8 @@ Then results of the parameter tuning will be in the folder "./irace/results".
 
 ### Step 2: Performance profiling all algorithms' instances
 todo
+
 ### Step 3: Performance similarity
-todo
+To generate the figures used in the paper, open and run the notebook: [script to generate the figures](./1_figures_generator.ipynb).
+
+This notebook uses the data generated from step 2: [performance profiles data](./performance_profiles.csv).

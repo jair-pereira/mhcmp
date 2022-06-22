@@ -1,5 +1,5 @@
 
-*.ipynb
+.ipynb_checkpoints/*
 ppdata
 exdata
 results

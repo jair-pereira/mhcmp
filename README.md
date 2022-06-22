@@ -8,8 +8,10 @@ The method has three steps:
 2. performance profiling of all generated instances on benchmark problems with different landscape characteristics, and 
 3. comparing the algorithm's instances using silhouette score and performance similarity.
 
-## Additional figures
-todo
+## Additional figures and tables
+1. [Parameters table](https://github.com/jair-pereira/mhcmp/blob/bioma2022/images/parameter_table.pdf)
+2. Silhouette score ![Silhouette score](https://github.com/jair-pereira/mhcmp/blob/bioma2022/images/silscore.svg)
+3. Big Heatmap with dendrogram for all algorithm instances ![bigheat](https://github.com/jair-pereira/mhcmp/blob/bioma2022/images/bigheat.html)
 
 ## Running the experiment
 ### Docker
@@ -18,10 +20,10 @@ Scripts are in a Docker environment. To initialize the docker:
 docker build -t mhcmp .
 docker run -dt --cpus="X" --name mhcmp_c1 mhcmp
 ```
-where X is the number of desired cpus
+where X is the number of the desired CPUs
 
 ### Step 1: Algorithm instance generation (parameter tuning)
-]To run step 1, initialize the docker, then 
+Initialize the docker, then 
 ```
 docker exec -t -i mhcmp_c1 /bin/bash
 nohup sh ./irace/exp.sh &

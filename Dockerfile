@@ -21,6 +21,7 @@ WORKDIR /home/mhcmp
 RUN python3 ./coco/do.py run-python
 
 # irace setup
+RUN chmod +x ./irace/exp.sh
 RUN chmod +x ./irace/target-runner_pso.sh
 RUN chmod +x ./irace/target-runner_ata.sh
 RUN chmod +x ./irace/target-runner_gsa.sh
@@ -29,6 +30,5 @@ RUN chmod +x ./irace/target-runner_ffa.sh
 RUN chmod +x ./irace/target-runner_saa.sh
 RUN chmod +x ./irace/target-runner_de.sh
 
-# run exp
-# RUN chmod +x test.sh
-# CMD ["./test.sh"]
+# run irace
+# CMD ["./irace/exp.sh"]

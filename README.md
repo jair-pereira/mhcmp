@@ -10,8 +10,8 @@ The method has three steps:
 
 ## Additional figures and tables
 1. [Parameters table](https://github.com/jair-pereira/mhcmp/blob/bioma2022/images/parameter_table.pdf)
-2. Silhouette score ![Silhouette score](https://github.com/jair-pereira/mhcmp/blob/bioma2022/images/silscore.svg)
-3. Big Heatmap with dendrogram for all algorithm instances ![bigheat](https://github.com/jair-pereira/mhcmp/blob/bioma2022/images/bigheat.html)
+2. [Silhouette score](https://github.com/jair-pereira/mhcmp/blob/bioma2022/images/silscore.svg)
+3. [Big Heatmap with dendrogram for all algorithm instances](https://github.com/jair-pereira/mhcmp/blob/bioma2022/images/bigheat.svg)
 
 ## Running the experiment
 ### Docker

@@ -9,27 +9,28 @@ from metaheuristic.ata import ata
 def main(args):
     ## arguments ##
     parser = argparse.ArgumentParser()
-    #parser.add_argument('--nfe'  , dest='nfe'  , type=float, help="Integer   : Number of Function Evaluations")
     parser.add_argument('--n'    , dest='n'    , type=int, help="Integer   : Population size")
     parser.add_argument('--tol'    , dest='tol'    , type=float, help="Real value:")
     parser.add_argument('--w'   , dest='w'   , type=float, help="Real value:")
     parser.add_argument('--seed' , dest='seed' , type=int,   help="Integer   : Exp Seed")
-    #parser.add_argument('--bbob', dest='bbob'  , type=str  , help="String    : BBOB suite e.g.:function_indices:1 dimensions:2 instance_indices:1")
+    parser.add_argument('--func' , dest='func' , type=int,   help="Int: BBOB function id")
+    parser.add_argument('--dim'  , dest='dim'  , type=int,   help="Int: BBOB dimension value")
+    parser.add_argument('--inst' , dest='inst' , type=int,   help="Int: BBOB instance indice")
+    parser.add_argument('--nfe'  , dest='nfe'  , type=int,   help="Integer: Number of Function Evaluations")
     args = parser.parse_args()
 
     ## bbob training suite ##
-    suite = cocoex.Suite("bbob", "", "function_indices:16 dimensions:5 instance_indices:1")
+    suite = cocoex.Suite("bbob", "", f"function_indices:{args.func} dimensions:{args.dim} instance_indices:{args.inst}")
 
     ## nfe ##
-    nfe = int(1e+5)
+    nfe = int(args.nfe)
 
     ## loop over problems ##
     problem = suite[0]
     result = ata(problem, maxnfe=nfe, n=int(args.n), tolerance=args.tol, w0=1, w=args.w, seed=int(args.seed))
 
-    fitness = result["f"]
     ## irace get information from standard output ##
-    print(fitness)
+    print(result["f"])
     return
 
 if __name__ == "__main__":

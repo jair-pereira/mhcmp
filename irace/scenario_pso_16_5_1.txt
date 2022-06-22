@@ -1,0 +1,10 @@
+parameterFile = "./parameter/parameters_pso.txt"
+execDir = "./"
+logFile = "./result/irace_pso_16_5_1.Rdata"
+trainInstancesDir = ""
+trainInstancesFile = "./Instances/16_5_1.txt"
+targetRunner = "./target-runner_pso.sh"
+maxExperiments = 2000
+nbIterations = 0
+parallel = 2
+digits = 2

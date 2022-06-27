@@ -32,9 +32,16 @@ nohup sh ./irace/exp.sh &
 Then results of the parameter tuning will be in the folder "./irace/results".
 
 ### Step 2: Performance profiling all algorithms' instances
-todo
+Initialize the docker, then:
+```
+docker exec -t -i mhcmp_c1 /bin/bash
+nohup sh ./exp_profile.sh &
+ ```
+The detailed log files of the runs will be saved on the folder ./results
 
 ### Step 3: Performance similarity
-To generate the figures used in the paper, open and run the notebook: [script to generate the figures](./1_figures_generator.ipynb).
+The log files generated in the previous step are [here](https://drive.google.com/file/d/1iPd2pWnDwwWklNYg76iz9_W-wpsHCTAQ/view?usp=sharing), and the processed version of this data is the [performance profiles](./performance_profiles.csv).
 
-This notebook uses the data generated from step 2: [performance profiles data](./performance_profiles.csv).
+To generate the performance_profiles.csv from scratch, open and run the notebook ([script processing](./0_processing.ipynb)). It uses the log files generated in step 2.
+
+To generate the figures used in the paper, open and run the notebook ([script figures](./1_figures_generator.ipynb)), feeding the performance_profiles.csv.

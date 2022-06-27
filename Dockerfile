@@ -30,5 +30,8 @@ RUN chmod +x ./irace/target-runner_ffa.sh
 RUN chmod +x ./irace/target-runner_saa.sh
 RUN chmod +x ./irace/target-runner_de.sh
 
+# profiling
+RUN chmod +x ./exp_profile.sh
+
 # run irace
 # CMD ["./irace/exp.sh"]

@@ -2,6 +2,6 @@
 .ipynb_checkpoints/*
 ppdata
 exdata
-results
+results/*
 *.pyc
 .DS_Store

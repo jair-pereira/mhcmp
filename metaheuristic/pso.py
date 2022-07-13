@@ -27,7 +27,7 @@ def pso(problem, maxnfe, n, w, c1, c2, seed, file=None):
         str_gbestx = ";".join(map(str, gbest_x))
         file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
 
-    while nfe <= maxnfe:
+    while nfe+n <= maxnfe and not problem.final_target_hit:
         ## compute new velocity ##
         R1 = myrng.random((n, problem.dimension))
         R2 = myrng.random((n, problem.dimension))
@@ -51,7 +51,7 @@ def pso(problem, maxnfe, n, w, c1, c2, seed, file=None):
             if Pbest_f[i] >= Pf[i]:
                 Pbest_x[i] = Px[i].copy()
                 Pbest_f[i] = Pf[i]
-                
+        
         ## history ##
         if file:
             str_gbestx = ";".join(map(str, gbest_x))

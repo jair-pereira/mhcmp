@@ -55,7 +55,7 @@ def rio(problem, maxnfe, n, t_hunger, a, c0, c1, seed, file=None):
         str_gbestx = ";".join(map(str, gbest_x))
         file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
 
-    while nfe <= maxnfe:
+    while nfe+n <= maxnfe and not problem.final_target_hit:
         # compute distances between c.solutions and the median
         dist_median, dist_matrix = calc_dist_matrix(Px, n)
         

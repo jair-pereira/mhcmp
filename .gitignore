@@ -5,3 +5,6 @@ exdata
 results/*
 *.pyc
 .DS_Store
+figures/*
+*.ipynb
+*.bak

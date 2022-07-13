@@ -39,7 +39,7 @@ def de(problem, maxnfe, n, cxpr, beta, seed, file=None):
         str_gbestx = ";".join(map(str, gbest_x))
         file.write(f"{nfe},{gbest_f},{str_gbestx}\n")
         
-    while nfe <= maxnfe:
+    while nfe+n <= maxnfe and not problem.final_target_hit:
         ## de-mutation ##
         Ps = np.array([np.random.choice(range(0,n), 3, replace=False) for _ in range(n)])
         Pu = np.array([Px[a] + beta*(Px[b]-Px[c]) for a,b,c in Ps])

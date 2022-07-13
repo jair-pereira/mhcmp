@@ -35,7 +35,7 @@ def gsa(problem, maxnfe, n, g0, alpha, seed, file=None):
     kbest = list(map(int, np.linspace(n, 1, int(max_iteration))))
     
     iteration=0
-    while nfe <= maxnfe:
+    while nfe+n <= maxnfe and not problem.final_target_hit:
         # compute g
         g = g0*np.e**(-alpha*iteration/max_iteration)
         

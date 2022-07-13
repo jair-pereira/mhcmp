@@ -57,7 +57,7 @@ def main():
     # todo: parameter files
     algnames = ["pso", "ata", "gsa", "ffa", "rio", "de", "saa"]
 
-    func = ["01", "06", "10", "16", "23"]
+    func = ["01", "06"]#, "14", "16", "23"]
     dim  = [5]
     inst = [1]
     nfe  = [int(1e+2)]
@@ -71,7 +71,7 @@ def main():
     master_parameter_list = {
         "pso":[
             {"name":"n",  "switch":f"\" \"", "type":"c", "values":"(25, 50, 100, 200, 400, 800)"},
-            {"name":"w",  "switch":f"\" \"", "type":"r", "values":"(0.00, 2.00)"},
+            {"name":"w",  "switch":f"\" \"", "type":"r", "values":"(0.00, 1.00)"},
             {"name":"c1", "switch":f"\" \"", "type":"r", "values":"(0.00, 2.00)"},
             {"name":"c2", "switch":f"\" \"", "type":"r", "values":"(0.00, 2.00)"}
         ],
@@ -88,15 +88,16 @@ def main():
         "ffa":[
             {"name":"n",     "switch":f"\" \"", "type":"c", "values":"(25, 50, 100, 200)"},
             {"name":"alpha", "switch":f"\" \"", "type":"r", "values":"(0.01, 1.00)"},
-            {"name":"gamma", "switch":f"\" \"", "type":"r", "values":"(0.01, 5.00)"}
+            {"name":"beta0", "switch":f"\" \"", "type":"r", "values":"(0.01, 1.00)"},
+            {"name":"gamma", "switch":f"\" \"", "type":"r", "values":"(0.01, 10.00)"}
         ],
         "rio":[
             {"name":"n",  "switch":f"\" \"", "type":"c",  "values":"(25, 50, 100, 200)"},
             {"name":"th", "switch":f"\" \"", "type":"r",  "values":"(0.01, 1.00)"},
-            {"name":"a1", "switch":f"\" \"", "type":"r",  "values":"(0.00, 2.00)"},
-            {"name":"a2", "switch":f"\" \"", "type":"r",  "values":"(0.00, 2.00)"},
-            {"name":"a3", "switch":f"\" \"", "type":"r",  "values":"(0.00, 2.00)"},
-            {"name":"c0", "switch":f"\" \"", "type":"r",  "values":"(0.00, 2.00)"},
+            {"name":"a1", "switch":f"\" \"", "type":"r",  "values":"(0.00, 1.00)"},
+            {"name":"a2", "switch":f"\" \"", "type":"r",  "values":"(0.00, 1.00)"},
+            {"name":"a3", "switch":f"\" \"", "type":"r",  "values":"(0.00, 1.00)"},
+            {"name":"c0", "switch":f"\" \"", "type":"r",  "values":"(0.00, 1.00)"},
             {"name":"c1", "switch":f"\" \"", "type":"r",  "values":"(0.00, 2.00)"}
         ],
         "de":[

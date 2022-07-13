@@ -33,7 +33,7 @@ def main(args):
 
     ## loop over problems ##
     problem = suite[0]
-    result = rio(problem, maxnfe=nfe, n=int(args.n), t_hunger=args.th, a=np.sort([args.a1, args.a2, args.a3]), c0=args.c0, c1=args.c1, seed=int(args.seed))
+    result = rio(problem, maxnfe=nfe, n=int(args.n), t_hunger=args.th, a=[args.a1, args.a2, args.a3], c0=args.c0, c1=args.c1, seed=int(args.seed))
 
     ## irace get information from standard output ##
     print(result["f"])

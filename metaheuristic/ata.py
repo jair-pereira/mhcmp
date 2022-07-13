@@ -34,8 +34,7 @@ def ata(problem, maxnfe, n, tolerance, w0, w, seed, file=None):
         else: #propagation
             for i in range(n):
                 r1 = myrng.uniform(0, 1, problem.dimension)
-                r2 = myrng.uniform(0, 1, problem.dimension)
-                Px[i] = r1*Px[i] + (1-r2)*Px[myrng.integers(0, n)]
+                Px[i] = r1*Px[i] + (1-r1)*Px[myrng.integers(0, n)]
         
         ## evaluate ##
         Pf = np.array([problem(x) for x in Px])

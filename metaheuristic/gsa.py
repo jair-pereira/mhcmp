@@ -54,7 +54,7 @@ def gsa(problem, maxnfe, n, g0, alpha, seed, file=None):
             Pforce[i] = 0
             for k in K:
                 a = g*(Pmass[i] * Pmass[k])
-                b = np.abs(Px[i]-Px[k]) + np.finfo('float').eps
+                b = np.sqrt(np.sum((Px[i]-Px[k])**2)) + np.finfo('float').eps
                 c = (Px[k]-Px[i])
 
                 Pforce[i] += c*(a/b) * myrng.uniform(0,1,problem.dimension)

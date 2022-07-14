@@ -1,8 +1,8 @@
 parameterFile = "./parameter/parameters_rio.txt"
 execDir = "./"
-logFile = "./result/irace_rio_01_5_1.Rdata"
+logFile = "./result/irace_rio_14_5_1.Rdata"
 trainInstancesDir = ""
-trainInstancesFile = "./Instances/01_5_1.txt"
+trainInstancesFile = "./Instances/14_5_1.txt"
 targetRunner = "./target-runner_rio.sh"
 maxExperiments = 10000
 nbIterations = 0

@@ -1,8 +1,8 @@
 parameterFile = "./parameter/parameters_gsa.txt"
 execDir = "./"
-logFile = "./result/irace_gsa_01_5_1.Rdata"
+logFile = "./result/irace_gsa_23_5_1.Rdata"
 trainInstancesDir = ""
-trainInstancesFile = "./Instances/01_5_1.txt"
+trainInstancesFile = "./Instances/23_5_1.txt"
 targetRunner = "./target-runner_gsa.sh"
 maxExperiments = 10000
 nbIterations = 0

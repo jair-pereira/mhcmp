@@ -1,8 +1,8 @@
 parameterFile = "./parameter/parameters_ffa.txt"
 execDir = "./"
-logFile = "./result/irace_ffa_01_5_1.Rdata"
+logFile = "./result/irace_ffa_23_5_1.Rdata"
 trainInstancesDir = ""
-trainInstancesFile = "./Instances/01_5_1.txt"
+trainInstancesFile = "./Instances/23_5_1.txt"
 targetRunner = "./target-runner_ffa.sh"
 maxExperiments = 10000
 nbIterations = 0

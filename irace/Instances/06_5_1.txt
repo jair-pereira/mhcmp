@@ -1,1 +1,1 @@
-"--func 06 --dim 5 --inst 1 --nfe 100"
+"--func 06 --dim 5 --inst 1 --nfe 100000"

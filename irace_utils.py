@@ -57,14 +57,14 @@ def main():
     # todo: parameter files
     algnames = ["pso", "ata", "gsa", "ffa", "rio", "de", "saa"]
 
-    func = ["01", "06"]#, "14", "16", "23"]
+    func = ["01", "06", "14", "16", "23"]
     dim  = [5]
     inst = [1]
-    nfe  = [int(1e+2)]
+    nfe  = [int(1e+5)]
 
-    irace_maxexperiments = 2000
+    irace_maxexperiments = int(1e+4)
     irace_iterations     = 0
-    irace_parallel       = 2
+    irace_parallel       = 15
     irace_digits         = 2
 
     #todo: json file

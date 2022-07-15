@@ -17,6 +17,7 @@ def main(args):
     parser.add_argument('--dim'  , dest='dim'  , type=int,   help="Int: BBOB dimension value")
     parser.add_argument('--inst' , dest='inst' , type=int,   help="Int: BBOB instance indice")
     parser.add_argument('--nfe'  , dest='nfe'  , type=int,   help="Integer: Number of Function Evaluations")
+    parser.add_argument('--restarts'  , dest='restart'  , type=int,   help="Integer: Number of restarts")
     args = parser.parse_args()
 
     ## bbob training suite ##
@@ -27,10 +28,16 @@ def main(args):
 
     ## run the solver ##
     problem = suite[0]
-    result = gsa(problem, maxnfe=nfe, n=int(args.n), g0=args.g0, alpha=args.alpha, seed=int(args.seed))
+
+    # best fvalue
+    best_f = np.inf
+    for r in args.restarts: # breaks inside the solver if target hit
+        result = gsa(problem, maxnfe=nfe, n=int(args.n), g0=args.g0, alpha=args.alpha, seed=int(args.seed))
+        if best_f > result["f"]:
+            best_f = result["f"]
 
     ## irace get information from standard output ##
-    print(result["f"])
+    print(best_f)
     return
 
 if __name__ == "__main__":

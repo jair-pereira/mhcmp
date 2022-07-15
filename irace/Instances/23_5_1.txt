@@ -1,1 +1,1 @@
-"--func 23 --dim 5 --inst 1 --nfe 100000"
+"--func 23 --dim 5 --inst 1 --nfe 400000 --restarts 4"

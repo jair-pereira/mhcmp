@@ -9,8 +9,8 @@
 
 import itertools
 
-def makefile_instance(filepath, func, dim, inst, nfe):
-    output = f"\"--func {func} --dim {dim} --inst {inst} --nfe {nfe}\"\n"
+def makefile_instance(filepath, func, dim, inst, nfe, restarts):
+    output = f"\"--func {func} --dim {dim} --inst {inst} --nfe {nfe} --restarts {restarts}\"\n"
 
     with open(filepath, "w") as file:
         file.write(output)
@@ -60,7 +60,8 @@ def main():
     func = ["01", "06", "14", "16", "23"]
     dim  = [5]
     inst = [1]
-    nfe  = [int(1e+5)]
+    nfe  = [int(4e+5)]
+    restarts = [4] #1e+5 per restart
 
     irace_maxexperiments = int(1e+4)
     irace_iterations     = 0
@@ -111,14 +112,14 @@ def main():
         ]
     }
 
-    # make training instance files (combination of func, dim, inst, and nfe)
+    # make training instance files (combination of func, dim, inst, nfe, and restart)
     training_instances = [
-        {"fname":f"{f}_{d}_{i}", "func":f, "dim":d, "inst":i, "nfe":nfe}
-            for f, d, i, nfe in itertools.product(func, dim, inst, nfe)
+        {"fname":f"{f}_{d}_{i}", "func":f, "dim":d, "inst":i, "nfe":nfe, "restarts":r}
+            for f, d, i, nfe, r in itertools.product(func, dim, inst, nfe, restarts)
     ]
 
     for a in training_instances:
-        makefile_instance(f"./irace/Instances/{a['fname']}.txt", a["func"], a["dim"], a["inst"], a["nfe"])
+        makefile_instance(f"./irace/Instances/{a['fname']}.txt", a["func"], a["dim"], a["inst"], a["nfe"], a["restarts"])
 
     # make scenario files (one file for each algorithm x training instance)
     for alg, tr_inst in itertools.product(algnames, [a["fname"] for a in training_instances]):

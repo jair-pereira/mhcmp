@@ -31,7 +31,7 @@ def main(args):
 
     # best fvalue
     best_f = np.inf
-    for r in args.restarts: # breaks inside the solver if target hit
+    for r in range(args.restarts): # breaks inside the solver if target hit
         result = ata(problem, maxnfe=nfe, n=int(args.n), tolerance=args.tol, w0=1, w=args.w, seed=int(args.seed))
         if best_f > result["f"]:
             best_f = result["f"]

@@ -32,7 +32,7 @@ def main(args):
 
     # best fvalue
     best_f = np.inf
-    for r in args.restarts: # breaks inside the solver if target hit
+    for r in range(args.restarts): # breaks inside the solver if target hit
         result = pso(problem, maxnfe=nfe, n=int(args.n), w=args.w, c1=args.c1, c2=args.c2, seed=int(args.seed))
         if best_f > result["f"]:
             best_f = result["f"]

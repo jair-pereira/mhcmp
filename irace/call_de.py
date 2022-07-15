@@ -31,7 +31,7 @@ def main(args):
 
     # best fvalue
     best_f = np.inf
-    for r in args.restarts: # breaks inside the solver if target hit
+    for r in range(args.restarts): # breaks inside the solver if target hit
         result = de(problem, maxnfe=nfe, n=int(args.n), cxpr=args.cxpr, beta=args.beta, seed=int(args.seed))
         if best_f > result["f"]:
             best_f = result["f"]

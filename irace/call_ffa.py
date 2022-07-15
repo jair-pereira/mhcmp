@@ -18,7 +18,7 @@ def main(args):
     parser.add_argument('--dim'     , dest='dim'  , type=int,   help="Int: BBOB dimension value")
     parser.add_argument('--inst'    , dest='inst' , type=int,   help="Int: BBOB instance indice")
     parser.add_argument('--nfe'     , dest='nfe'  , type=int,   help="Integer: Number of Function Evaluations")
-    parser.add_argument('--restarts'  , dest='restart'  , type=int,   help="Integer: Number of restarts")
+    parser.add_argument('--restarts'  , dest='restarts'  , type=int,   help="Integer: Number of restarts")
     args = parser.parse_args()
 
     ## bbob training suite ##
